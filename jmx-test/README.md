@@ -5,3 +5,7 @@ How to run
 javac Main.java
 ./run.sh
 ```
+How to stop
+```
+./kill.sh
+```
