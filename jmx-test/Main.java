@@ -17,7 +17,7 @@ class Main {
 
 		try {
 		    // URLを作成してGET通信を行う
-		    URL url = new URL("http://192.168.32.100:11080/");
+		    URL url = new URL("http://aws-agent.ddmasa.com:11080/");
 		    HttpURLConnection http = (HttpURLConnection)url.openConnection();
 		    http.setRequestMethod("GET");
 		    http.connect();
