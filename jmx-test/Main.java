@@ -34,7 +34,7 @@ class Main {
 		
 		Thread.sleep(1000);
 		for(int i=0; i<1000; i++) {
-		    list.add(0,new Integer(i));
+		    list.add(0,Integer.valueOf(i));
 		}
 		Thread.sleep(1000);
 		for(int i=0; i<1000; i++) {
