@@ -1,2 +1,3 @@
-#!/usr/bin/env zsh
-[[ -f $(dirname $0)/pid.txt ]] && kill $(cat "$(dirname $0)/pid.txt") && rm -f "$(dirname $0)/pid.txt"
+#!/usr/bin/bash -x
+pid_file=$(dirname $0)/pid.txt
+[[ -f $pid_file ]] && kill $(cat "${pid_file}") && rm -f "${pid_file}"
