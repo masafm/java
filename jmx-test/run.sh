@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 root_dir=$(dirname $0)
 /usr/bin/nohup /usr/bin/java \
 	       -Dcom.sun.management.jmxremote.ssl=false \
