@@ -26,7 +26,7 @@ class Main {
 		    String xml = "", line = "";
 		    while((line = reader.readLine()) != null)
 			xml += line;
-		    System.out.println(xml);
+		    //System.out.println(xml);
 		    reader.close();
 		} catch(Exception e) {
 		    System.out.println("Exception!!!");
