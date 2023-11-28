@@ -10,9 +10,11 @@ class Main {
     public static void main(String[] args) {
 	System.out.println("main method(String[]).");
 	Sample s = new Sample();
+	Main m = new Main();
 	while (true) {
 	    try {
-		Main.myFunc();
+		
+		m.myFunc();
 		s.print();
 
 		try {
@@ -46,7 +48,7 @@ class Main {
 	}
     }
     
-    private static void myFunc() {
+    private void myFunc() {
 	System.out.println("myFunc() test");
 	Main.myFunc2();
     }
