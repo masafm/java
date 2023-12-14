@@ -1,14 +1,28 @@
+package jmx.test;
+
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import sample.Sample;
-    
+import io.opentracing.Span;
+import io.opentracing.Tracer;
+import io.opentracing.util.GlobalTracer;
+
 class Main {
     private static ArrayList<Integer> list = new ArrayList<>();
     public static void main(String[] args) {
 	System.out.println("main method(String[]).");
+	final Span span = GlobalTracer.get().activeSpan();
+        if (span != null) {
+	    int customer_id = 254889;
+	    String customer_tier = "platinum";
+	    int cart_value = 867;
+          span.setTag("customer.id", customer_id);
+          span.setTag("customer.tier", customer_tier);
+          span.setTag("cart.value", cart_value);
+        }
 	Sample s = new Sample();
 	Main m = new Main();
 	while (true) {
@@ -48,9 +62,10 @@ class Main {
 	}
     }
     
-    private void myFunc() {
+    public String myFunc() {
 	System.out.println("myFunc() test");
 	Main.myFunc2();
+	return "myFunc";
     }
 
     private static void myFunc2() {
