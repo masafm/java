@@ -11,6 +11,12 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '8.+'
 }
 
+// configurations {
+//     antContrib
+//     externalLibs
+//     deploymentTools
+// }
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -26,6 +32,9 @@ dependencies {
     implementation libs.guava
 
     implementation 'io.opentracing:opentracing-util:0.33.0'
+
+    implementation 'com.datadoghq:dd-trace-api:1.25.1'
+    //externalLibs files('/opt/dd-java-agent.jar')
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -47,8 +56,8 @@ tasks.named('test') {
 
 jar {
     manifest {
-    attributes(
-        'Main-Class': 'jmx.test.Main'
-    )
+        attributes(
+            'Main-Class': 'jmx.test.Main'
+        )
     }
 }
