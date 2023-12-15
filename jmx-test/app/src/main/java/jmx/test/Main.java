@@ -1,5 +1,6 @@
 package jmx.test;
 
+import java.io.*;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.io.BufferedReader;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import jmx.test.sample.Sample;
 import datadog.trace.api.DDTags;
 import datadog.trace.api.Trace;
+import datadog.trace.api.interceptor.MutableSpan;
 import io.opentracing.Scope;
 import io.opentracing.Span;
 import io.opentracing.Tracer;
@@ -56,7 +58,16 @@ class Main {
 	    //logger.info(xml);
 	    reader.close();
 	} catch(Exception e) {
-	    logger.error("Exception!!!");
+	    StringWriter sw = new StringWriter();
+	    PrintWriter pw = new PrintWriter(sw);
+	    e.printStackTrace(pw);
+	    String stackTrace = sw.toString();
+	    logger.error(stackTrace);
+	    //Set error on span
+	    MutableSpan span = (MutableSpan)GlobalTracer.get().activeSpan();
+	    span.setError(true);
+	    MutableSpan localRootSpan = span.getLocalRootSpan();
+	    localRootSpan.setError(true);
 	}
 
     }
