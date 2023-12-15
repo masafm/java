@@ -10,6 +10,6 @@ public class Sample {
 	logger.info("sample.Sample print()");
 	String packageName = this.getClass().getPackage().getName();
 	String className = this.getClass().getName();
-	logger.info("responseStaticPage mehod invoked. Package:"+packageName+" Class:"+className);
+	logger.info("Package:"+packageName+" Class:"+className);
     }
 }

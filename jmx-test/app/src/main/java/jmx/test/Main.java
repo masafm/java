@@ -20,6 +20,14 @@ import org.slf4j.LoggerFactory;
 class Main {
     private static final ArrayList<Integer> list = new ArrayList<>();
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    private String strUrl = null;
+    
+    public Main() {
+    	strUrl = System.getProperty("target.url");
+    	if (strUrl == null || strUrl.isEmpty()) {
+    		strUrl = "http://aws-agent.ddmasa.com:82/rewrite/test1/1234/?param=1234";
+    	}
+    }
     
     public static void main(String[] args) {
 	Main m = new Main();
@@ -36,26 +44,25 @@ class Main {
 		for(int i=0; i<1000; i++) {
 		    list.remove(0);
 		}
-	    } catch (InterruptedException e) {
-		
-	    }
+	    } catch (InterruptedException e) {}
 	}
     }
 
     @Trace(operationName = "httpAccess", resourceName = "jmx.test.Main")
     private void httpAccess(String strUrl) {
 	try {
-	    // URLを作成してGET通信を行う
+	    // Create URL and exec HTTP GET access
+	    logger.info("Accessing "+strUrl);
 	    URL url = new URL(strUrl);
 	    HttpURLConnection http = (HttpURLConnection)url.openConnection();
 	    http.setRequestMethod("GET");
 	    http.connect();
 	    // サーバーからのレスポンスを標準出力へ出す
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(http.getInputStream()));
-	    String xml = "", line = "";
+	    String text = "", line = "";
 	    while((line = reader.readLine()) != null)
-		xml += line;
-	    //logger.info(xml);
+		text += line;
+	    logger.debug(text);
 	    reader.close();
 	} catch(Exception e) {
 	    StringWriter sw = new StringWriter();
@@ -77,7 +84,7 @@ class Main {
 	Sample s = new Sample();
 	s.print();	    
 
-	httpAccess("http://aws-agent.ddmasa.com:82/rewrite/test1/1234/?param=1234");
+	httpAccess(strUrl);
 	Span span = GlobalTracer.get().activeSpan();
 	logger.info(span.toString());
 	if (span != null) {
