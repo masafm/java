@@ -2,10 +2,12 @@
 How to run
 ```
 # install openjdk
-javac Main.java
+# install gradle-8.5
+gradle build
+gradle shadowJar
 ./run.sh
 ```
 How to stop
 ```
-./kill.sh
+Ctrl-c
 ```
