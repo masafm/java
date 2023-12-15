@@ -16,7 +16,7 @@ import io.opentracing.util.GlobalTracer;
 class Main {
     private static ArrayList<Integer> list = new ArrayList<>();
 
-    //@Trace(operationName = "main", resourceName = "jmx.test.Main.main")
+    @Trace(operationName = "main", resourceName = "jmx.test.Main.main")
     public static void main(String[] args) {
 	System.out.println("main method(String[]).");
 	Sample s = new Sample();
@@ -45,6 +45,7 @@ class Main {
 		}
 
 		final Span span = GlobalTracer.get().activeSpan();
+		System.out.println(span);		
 		if (span != null) {
 		    System.out.println("Custom span tag");
 		    int customer_id = 254889;

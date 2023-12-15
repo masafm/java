@@ -7,7 +7,7 @@ project_root=$(dirname $0)
 	       -javaagent:/opt/dd-java-agent.jar \
 	       -Ddd.profiling.enabled=true -XX:FlightRecorderOptions=stackdepth=256 \
 	       -Ddd.logs.injection=true \
-	       -Ddd.trace.debug=false \
+	       -Ddd.trace.debug=true \
 	       -Ddd.trace.config=${project_root}/datadog.properties \
 	       -jar ./app/build/libs/app-all.jar jmx.test.Main
 )
