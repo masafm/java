@@ -1,4 +1,4 @@
-package sample;
+package jmx.test.sample;
 
 public class Sample {
     public void print(){

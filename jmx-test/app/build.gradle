@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.+'
 }
 
 repositories {
@@ -36,10 +37,18 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'jmx.test.App'
+    mainClass = 'jmx.test.Main'
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+    attributes(
+        'Main-Class': 'jmx.test.Main'
+    )
+    }
 }

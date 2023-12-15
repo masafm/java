@@ -6,7 +6,7 @@ package jmx.test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+class MainTest {
     @Test void appHasMain() {
         Main classUnderTest = new Main();
         assertNotNull(classUnderTest.myFunc(), "app should have myFunc method");
