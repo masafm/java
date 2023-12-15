@@ -57,7 +57,7 @@ class Main {
 	    HttpURLConnection http = (HttpURLConnection)url.openConnection();
 	    http.setRequestMethod("GET");
 	    http.connect();
-	    // サーバーからのレスポンスを標準出力へ出す
+	    // Wrtie http content to debug log
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(http.getInputStream()));
 	    String text = "", line = "";
 	    while((line = reader.readLine()) != null)
