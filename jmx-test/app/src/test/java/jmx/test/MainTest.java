@@ -9,6 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class MainTest {
     @Test void appHasMain() {
         Main classUnderTest = new Main();
-        assertNotNull(classUnderTest.myFunc(), "app should have myFunc method");
+        assertNotNull(classUnderTest.print(), "app should have print method");
     }
 }
