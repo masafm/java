@@ -17,14 +17,14 @@ logs:
 ```
 cd jmx-test
 gradle build
-gradle run
+TARGET_URL=http://www.datadoghq.com/ gradle run
 ```
 or
 ```
 cd jmx-test
 gradle build
 gradle shadowJar
-./run.sh
+TARGET_URL=http://www.datadoghq.com/ ./run.sh
 ```
 ### How to stop
 ```
