@@ -1,5 +1,10 @@
 # java
 ## jmx-test
+
+### Description
+A java program to access http URL repeatedly.
+Expose jmx metrics and transmit APM trace and logs.
+
 ### Prerequiesit
 * Install openjdk: `sudo apt update && sudo apt install -y openjdk-17-jre`
 * Install [gradle-8.5](https://gradle.org/)
