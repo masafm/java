@@ -1,10 +1,7 @@
 # java
 ## jmx-test
 ### Prerequiesit
-* Install openjdk
-```
-sudo apt update && sudo apt install -y openjdk-17-jre
-```
+* Install openjdk: `sudo apt update && sudo apt install -y openjdk-17-jre`
 * Install [gradle-8.5](https://gradle.org/)
 * Download [dd-java-agent.jar](https://repo1.maven.org/maven2/com/datadoghq/dd-java-agent/) to `/opt/dd-java-agent.jar`
 * Run Datadog Agent with the following logs config
