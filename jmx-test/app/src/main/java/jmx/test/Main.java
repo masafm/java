@@ -24,8 +24,12 @@ class Main {
     
     public Main() {
     	strUrl = System.getProperty("target.url");
+
     	if (strUrl == null || strUrl.isEmpty()) {
-    		strUrl = "http://aws-agent.ddmasa.com:82/rewrite/test1/1234/?param=1234";
+	    strUrl = System.getenv("TARGET_URL");
+	}
+    	if (strUrl == null || strUrl.isEmpty()) {
+	    strUrl = "http://aws-agent.ddmasa.com:82/rewrite/test1/1234/?param=1234";
     	}
     }
     
