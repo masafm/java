@@ -1,6 +1,5 @@
 #!/usr/bin/bash
-project_root=$(dirname $0)
-( cd "${project_root}"; /usr/bin/java \
+( cd "$(dirname $0)"; /usr/bin/java \
 	       -Dcom.sun.management.jmxremote.ssl=false \
 	       -Dcom.sun.management.jmxremote.port=9012 \
 	       -Dcom.sun.management.jmxremote.authenticate=false \
