@@ -15,11 +15,13 @@ logs:
 
 ### How to run
 ```
+cd jmx-test
 gradle build
 gradle run
 ```
 or
 ```
+cd jmx-test
 gradle build
 gradle shadowJar
 ./run.sh
