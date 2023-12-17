@@ -1,9 +1,12 @@
 # jmx-test
-How to run
+## Prerequiesit
 * install openjdk
-`sudo apt update && sudo apt install -y openjdk-17-jre`
+```
+sudo apt update && sudo apt install -y openjdk-17-jre
+```
 *  install [gradle-8.5](https://gradle.org/)
 
+## How to run
 ```
 gradle build
 gradle run
@@ -14,7 +17,7 @@ gradle build
 gradle shadowJar
 ./run.sh
 ```
-How to stop
+## How to stop
 ```
 Ctrl-c
 ```
