@@ -8,5 +8,5 @@
 			  -Ddd.logs.injection=true \
 			  -Ddd.trace.debug=false \
 			  -Ddd.trace.config="$(dirname $0)/app/datadog.properties" \
-			  -jar ./app/build/libs/app-all.jar jmx.test.Main
+			  -jar ./app/build/libs/app-1.0-SNAPSHOT-all.jar tomcat.Main
 )

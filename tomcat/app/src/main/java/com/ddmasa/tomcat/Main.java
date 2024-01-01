@@ -1,4 +1,4 @@
-package jmx.test;
+package com.ddmasa.tomcat;
 
 import java.io.*;
 import java.net.URL;
@@ -6,7 +6,6 @@ import java.net.HttpURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import jmx.test.sample.SampleController;
 import datadog.trace.api.DDTags;
 import datadog.trace.api.Trace;
 import datadog.trace.api.interceptor.MutableSpan;
@@ -44,26 +43,9 @@ class Main {
     
     public static void main(String[] args) {
 	SpringApplication.run(Main.class, args);
-	
-	Main m = new Main("http://localhost:8080/sb");
-	m.logger.info("main method(String[]).");
-	while (true) {
-	    try {
-		m.print();
-		m.exec();
-		Thread.sleep(1000);
-		for(int i=0; i<1000; i++) {
-		    list.add(0,Integer.valueOf(i));
-		}
-		Thread.sleep(1000);
-		for(int i=0; i<1000; i++) {
-		    list.remove(0);
-		}
-	    } catch (InterruptedException e) {}
-	}
     }
 
-    @Trace(operationName = "httpAccess", resourceName = "jmx.test.Main")
+    @Trace(operationName = "httpAccess", resourceName = "com.ddmasa.tomcat.Main")
     private void httpAccess(String strUrl) {
 	try {
 	    // Create URL and exec HTTP GET access
@@ -94,8 +76,8 @@ class Main {
 
     }
     
-    @Trace(operationName = "exec", resourceName = "jmx.test.Main")
-    private void exec() {
+    @Trace(operationName = "exec", resourceName = "com.ddmasa.tomcat.Main")
+    public void exec() {
 	SampleController s = new SampleController();
 	s.print();	    
 
@@ -114,14 +96,14 @@ class Main {
 
     }
     
-    @Trace(operationName = "print", resourceName = "jmx.test.Main")
+    @Trace(operationName = "print", resourceName = "com.ddmasa.tomcat.Main")
     public String print() {
 	logger.info("print() test");
 	print2();
 	return "myFunc";
     }
 
-    @Trace(operationName = "print2", resourceName = "jmx.test.Main")
+    @Trace(operationName = "print2", resourceName = "com.ddmasa.tomcat.Main")
     private void print2() {
 	logger.info("print2() test");	
     }
