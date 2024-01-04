@@ -17,13 +17,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-class Main {
+class Main extends SpringBootServletInitializer{
     private static final ArrayList<Integer> list = new ArrayList<>();
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private String strUrl = null;
 
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Main.class);
+    }
+    
     public Main() {
 	this(null);
     }
