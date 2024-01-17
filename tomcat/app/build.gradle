@@ -61,10 +61,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-group = 'aws-agent.ddmasa.com'
-version = '1.0-SNAPSHOT'
-sourceCompatibility = '17'
-
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
