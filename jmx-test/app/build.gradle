@@ -73,7 +73,10 @@ application {
 	'-XX:FlightRecorderOptions=stackdepth=256',
 	'-Ddd.logs.injection=true',
 	'-Ddd.trace.debug=false',
-	'-Ddd.trace.config=datadog.properties',
+	//'-Ddd.trace.config=datadog.properties',
+        '-Ddd.env=host',
+        '-Ddd.service=jmx-test',
+        '-Ddd.version=1.0',
 	//'-Dtarget.url=http://www.google.co.jp/'
     ]
 }
